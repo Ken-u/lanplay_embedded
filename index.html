@@ -31,7 +31,7 @@
         <h3 class="menu-section-title">管理</h3>
         <ul class="menu-section-list">
           <li><a onclick="openModal()">增删服务器</a></li>
-		  <li><a onclick="openSetting()">设置</a></li>
+		  <li><a onclick="openSetting()">Lanplay服务管理</a></li>
         </ul>
       </section>
 
@@ -76,11 +76,16 @@
 	  
 	  <div id="setting">
         <div class="modal-content">
-          <h2>设置</h2>
-          <input type="text" id="wsMessageModal" class="editText">
+          <h2>启动/停止Lanplay服务</h2>
+          <!-- 下拉列表容器 -->
+		  <div id="dropdown-container">
+            <label for="optionsDropdown">选择一个选项：</label>
+            <select id="optionsDropdown" onchange="updateEndpoint()"></select>
+          </div>
           <br>
-          <button onclick="openSetting()" class="buttonConfirm">Save</button>
-          <button onclick="closeSetting()" class="buttonCancel">Close</button>
+          <button onclick="startLanplay()" class="buttonConfirm">Start</button>
+          <button onclick="stopLanplay()" class="buttonCancel">Stop</button>
+		  <button onclick="closeSetting()" class="buttonCancel">取消</button>
 		  <br>
         </div>
       </div>

@@ -23,13 +23,6 @@
 			
 			// 获取刷新时间的输入框
 			var refreshTimeInput = document.getElementById("refreshTime");
-			
-			// 更新全局变量和触发数据刷新
-			function updateEndpoint() {
-				var selectedEndpoint = document.getElementById("graphqlEndpoint").value;
-				var selectedTile = document.querySelector('.tile p strong:contains("' + selectedEndpoint + '")').closest('.tile');
-				fetchData(selectedEndpoint, selectedTile);
-			}
 
 			// 更新刷新时间
 			function updateRefreshTime() {
