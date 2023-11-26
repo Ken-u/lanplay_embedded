@@ -43,6 +43,10 @@
 				createTiles();
 			}
 			
+function clearMessage() {
+	const outputDiv = document.getElementById('output');
+	outputDiv.innerHTML = ``;
+}
 function openWS() {
 	document.getElementById("wsDebug").style.display = "block";
 }
