@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="lanplay_list.css">
     <link rel="stylesheet" href="../index.css">
 	<link rel="stylesheet" href="lanplay_server_mgr.css">
+	<link rel="stylesheet" href="setting.css">
     <title>Slideout tests</title>
   </head>
   <body>
@@ -27,9 +28,10 @@
       </a>
 
       <section class="menu-section">
-        <h3 class="menu-section-title">服务器管理</h3>
+        <h3 class="menu-section-title">管理</h3>
         <ul class="menu-section-list">
           <li><a onclick="openModal()">增删服务器</a></li>
+		  <li><a onclick="openSetting()">设置</a></li>
         </ul>
       </section>
 
@@ -70,7 +72,17 @@
 		  <!-- 显示Lanplay的输出 -->
 		  <div id="output"></div>
         </div>
-		
+      </div>
+	  
+	  <div id="setting">
+        <div class="modal-content">
+          <h2>设置</h2>
+          <input type="text" id="wsMessageModal" class="editText">
+          <br>
+          <button onclick="openSetting()" class="buttonConfirm">Save</button>
+          <button onclick="closeSetting()" class="buttonCancel">Close</button>
+		  <br>
+        </div>
       </div>
 
       <section class="box">
@@ -97,6 +109,7 @@
 	<script src="lanplay_list.js"></script>
 	<script src="lanplay_server_mgr.js"></script>
 	<script src="debug.js"></script>
+	<script src="setting.js"></script>
     <script>
       window.onload = function() {
         document.querySelector('.js-slideout-toggle').addEventListener('click', function() {
