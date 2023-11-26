@@ -1,0 +1,111 @@
+<!doctype html>
+<!--[if IE 8]><html class="ie8 lt-ie10"><![endif]-->
+<!--[if IE 9]><html class="ie9 lt-ie10"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="MobileOptimized" content="320">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="test.css">
+	<link rel="stylesheet" href="debug.css">
+	<link rel="stylesheet" href="lanplay_list.css">
+    <link rel="stylesheet" href="../index.css">
+	<link rel="stylesheet" href="lanplay_server_mgr.css">
+    <title>Slideout tests</title>
+  </head>
+  <body>
+
+    <nav id="menu" class="menu">
+      <a href="https://github.com/Ken-u" target="_blank">
+        <header class="menu-header">
+          <span class="menu-header-title">LanPlay For TV</span>
+        </header>
+      </a>
+
+      <section class="menu-section">
+        <h3 class="menu-section-title">服务器管理</h3>
+        <ul class="menu-section-list">
+          <li><a onclick="openModal()">增删服务器</a></li>
+        </ul>
+      </section>
+
+      <section class="menu-section">
+        <h3 class="menu-section-title">Debug</h3>
+        <ul class="menu-section-list">
+          <li><a onclick="openWS()">WS命令</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <main id="panel" class="panel">
+      <header class="panel-header">
+        <button class="btn-hamburger js-slideout-toggle"></button>
+        <h1 class="title">LanPlay Box</h1>
+      </header>
+	  
+	  <div id="serverMgr">
+        <div class="modal-content">
+          <h2>添加/删除服务器</h2>
+          <input type="text" id="inputBoxModal" class="editText">
+          <br>
+          <button onclick="addServer()" class="buttonConfirm">添加</button>
+		  <button onclick="removeServer()" class="buttonCancel">删除</button>
+          <button onclick="closeModal()" class="buttonCancel">取消</button>
+        </div>
+      </div>
+	  
+	  <div id="wsDebug">
+        <div class="modal-content">
+          <h2>WebSocket Debug</h2>
+          <input type="text" id="wsMessageModal" class="editText">
+          <br>
+          <button onclick="sendMessage()" class="buttonConfirm">Debug</button>
+          <button onclick="closeWS()" class="buttonCancel">关闭</button>
+		  <br>
+		  <!-- 显示Lanplay的输出 -->
+		  <div id="output"></div>
+        </div>
+		
+      </div>
+
+      <section class="box">
+        <h2 class="box-title">Room Info</h2>
+        <div id="roomUrl" class="box-content">
+		  <!-- 显示GraphQL地址和游戏信息的磁块 -->
+		  <div id="tiles"></div>
+		</div>
+      </section>
+
+      <footer class="panel-footer">
+        <p>with <span class="heart">❤</span> by <a href="https://github.com/Ken-u" target="_blank">Ken</a></p>
+      </footer>
+    </main>
+
+    <script>
+      var exports = null;
+      function assert(expr, msg) {
+        if (!expr) throw new Error(msg || 'failed');
+      }
+    </script>
+    <script src="../js/slideout.min.js"></script>
+    <script src="test.js"></script>
+	<script src="lanplay_list.js"></script>
+	<script src="lanplay_server_mgr.js"></script>
+	<script src="debug.js"></script>
+    <script>
+      window.onload = function() {
+        document.querySelector('.js-slideout-toggle').addEventListener('click', function() {
+          slideout.toggle();
+        });
+
+        document.querySelector('.menu').addEventListener('click', function(eve) {
+          if (eve.target.nodeName === 'A') { slideout.close(); }
+        });
+      };
+    </script>
+  </body>
+</html>
