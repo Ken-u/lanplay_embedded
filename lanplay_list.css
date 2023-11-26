@@ -13,7 +13,7 @@
 			flex: 1;
 			padding: 8px;
 			text-align: center;
-			border: 1px dashed #000; /* 设置虚线边框 */
+			border: 1px solid #ccc; /* 设置虚线边框 */
 			display: grid;
 			place-items: center;
 		}
@@ -53,7 +53,7 @@
 		.roomInfo {
 			padding-left: 10px;
 			padding-right: 10px;
-			border: 1px solid #ccc;
+
 		}
 
 		.roomInfo p {
