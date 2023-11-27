@@ -1,0 +1,61 @@
+.table-container {
+			width: 100%; /* 调整表格总宽度 */
+			margin: 20px auto; /* 居中显示 */
+			font-family: Arial, sans-serif; /* 使用指定字体 */
+		}
+
+		.table-row {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.table-cell {
+			flex: 1;
+			padding: 8px;
+			text-align: center;
+			border: 1px solid #ccc; /* 设置虚线边框 */
+			display: grid;
+			place-items: center;
+		}
+
+		.table-cell img {
+			max-width: 100px; /* 设置图片最大宽度 */
+			max-height: 100%; /* 保持图片高度自适应 */
+			display: block; /* 防止图片底部产生空白 */
+			margin: 0 auto; /* 居中显示图片 */
+		}
+
+		.table-header {
+			font-weight: bold;
+			border-bottom: 2px solid #000; /* 设置实线边框作为表头下边界线 */
+		}
+		.tile {
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin: 10px;
+		}
+
+		.gameInfo {
+			border: 1px solid #ccc;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: left;
+		}
+
+		.gameImage {
+			max-width: 100px;
+			height: auto;
+			margin-bottom: 10px;
+			align-items: left;
+		}
+
+		.roomInfo {
+			padding-left: 10px;
+			padding-right: 10px;
+
+		}
+
+		.roomInfo p {
+			margin: 5px 0;
+		}
