@@ -21,9 +21,12 @@ LANPLAY_SERVER_MGR_CONF_ENV = \
 define LANPLAY_SERVER_MGR_INSTALL_INIT_SYSV
 	$(INSTALL) -m 0755 -D package/lanplay-server-mgr/S95_lanplay_server_mgr \
 		$(TARGET_DIR)/etc/init.d/S95_lanplay_server_mgr
-	mkdir -p $(TARGET_DIR)/usr/lanplay_server/; \
-		cp -rf package/lanplay-server-mgr/server_list.txt \
+	mkdir -p $(TARGET_DIR)/usr/lanplay_server/
+	mkdir -p $(TARGET_DIR)/usr/webfiles/tools/
+	cp -rf package/lanplay-server-mgr/server_list.txt \
 		$(TARGET_DIR)/usr/lanplay_server/
+	cp -rf package/lanplay-server-mgr/webfiles/* \
+		$(TARGET_DIR)/usr/webfiles/tools/
 endef
 
 $(eval $(cmake-package))
