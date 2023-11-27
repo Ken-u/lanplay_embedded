@@ -1,0 +1,4 @@
+config BR2_PACKAGE_LANPLAY_SERVER_MGR
+	bool "lanplay-server-mgr"
+	help
+	  Provides simple switch lan play server manager
